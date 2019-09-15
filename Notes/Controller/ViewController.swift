@@ -10,9 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageBackground: UIImageView!
+    @IBOutlet weak var textNotes: UITextField!
+    
+    let storeDate = UserDefaults.standard
+
+    
+    @IBAction func buttonSalve(_ sender: UIButton) {
+        let textNote = textNotes.text
+        if let textNoteVerified = textNote{
+            storeDate.set(textNoteVerified, forKey: "note")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        textNotes.text = storeDate.object(forKey: "note") as! String
+        imageBackground.image = UIImage(named: "background")
     }
 
 
