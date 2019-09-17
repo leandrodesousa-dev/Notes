@@ -26,10 +26,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textNotes.text = storeDate.object(forKey: "note") as! String
-        imageBackground.image = UIImage(named: "background")
+        textNotes.text = storeDate.object(forKey: "note") as? String
     }
 
+    //funcao que indica pra mim quando clico fora de algum objeto da tela
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //esconde o teclado quando termino de usar
+        view.endEditing(true)
+    }
+    
+    //
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
 }
 
