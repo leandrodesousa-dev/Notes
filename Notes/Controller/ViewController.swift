@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageBackground: UIImageView!
-    @IBOutlet weak var textNotes: UITextField!
+    @IBOutlet weak var textNotes: UITextView!
     
     let storeDate = UserDefaults.standard
 
