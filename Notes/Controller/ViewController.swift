@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             let task = DatesTask()
             task.salve(task: textTyped)
             textNotes.text = ""
+            print(task.listar())
         }
     }
     
