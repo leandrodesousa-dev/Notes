@@ -12,21 +12,19 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var imageBackground: UIImageView!
     @IBOutlet weak var textNotes: UITextView!
-    
-    let storeDate = UserDefaults.standard
 
     
     @IBAction func buttonSalve(_ sender: UIButton) {
-        let textNote = textNotes.text
-        if let textNoteVerified = textNote{
-            storeDate.set(textNoteVerified, forKey: "note")
+    
+        if let textTyped = textNotes.text {
+            let task = DatesTask()
+            task.salve(task: textTyped)
+            textNotes.text = ""
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textNotes.text = storeDate.object(forKey: "note") as? String
     }
 
     //funcao que indica pra mim quando clico fora de algum objeto da tela
